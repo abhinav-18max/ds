@@ -5,7 +5,6 @@ int cfront, crear, cn;
 
 void cq_insert()
 {
-    // insert item in circular queue
     if((crear+1)%cn == cfront)
         printf("Queue Full!\n");
     
@@ -35,7 +34,7 @@ int cq_display(){
     
     else{
         printf("Queue : ");
-        for(i=cfront+1; i!=crear; i=(i+1)%cn)
+        for(i=(cfront+1)%cn; i!=crear; i=(i+1)%cn)
             printf("%d ", cqueue[i]);
         printf("%d", cqueue[i]);
     }
@@ -115,7 +114,7 @@ void pq_display(){
     else {
         printf("Queue : ");
         for(int i=pfront+1; i<=prear; i++)
-            printf("%d ", pqueue[i].data);
+            printf("\n%d\t%d", pqueue[i].data,pqueue[i].priority);
     }
 }
 
@@ -151,6 +150,7 @@ void main() {
     scanf("%d", &cn);
     printf("Enter size of the Priority Queue: ");
     scanf("%d", &pn);
+    pn=pn+1;
     int choice=0;
     // A menu with options Circular Queue, Priority Queue and Exit
     do {
